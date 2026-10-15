@@ -1,0 +1,43 @@
+/* Hero: full-screen banner slideshow + logo orbit + scrolling strip */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:84px 0 60px;overflow:hidden;background:radial-gradient(circle at 85% 25%,var(--tint),var(--bg) 60%)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center}
+/* Overlay keeps text readable. Lower the numbers to show more of the photo. */
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(243,244,246,.96) 0%,rgba(243,244,246,.86) 45%,rgba(243,244,246,.35) 100%)}
+[data-theme=dark] .hero-overlay{background:linear-gradient(90deg,rgba(11,18,32,.95) 0%,rgba(11,18,32,.82) 45%,rgba(11,18,32,.45) 100%)}
+
+.hero .wrap{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2rem,3.6vw,3.1rem)}
+.hw{display:inline-block;margin-right:.25em}
+.lead{font-size:1.05rem;max-width:480px;margin:18px 0 26px;color:var(--muted)}
+.badges{display:flex;gap:20px;margin-top:28px;flex-wrap:wrap;font-weight:700;font-size:.92rem;color:var(--g3)}
+[data-theme=dark] .badges{color:var(--g1)}
+
+/* Slide dots */
+.hero-dots{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2}
+.hero-dots button{width:10px;height:10px;border-radius:99px;border:0;background:rgba(5,150,105,.35);cursor:pointer;transition:width .3s,background .3s}
+.hero-dots button.active{width:28px;background:var(--g2)}
+
+/* Logo orbit */
+.orbit{position:relative;aspect-ratio:1;max-width:420px;margin:auto;width:100%}
+.ring{position:absolute;inset:3%;border-radius:50%;border:2px dashed rgba(5,150,105,.4)}
+.logo-orb{position:absolute;inset:24%;border-radius:50%;background:#fff;display:grid;place-items:center;padding:12%;box-shadow:0 24px 60px var(--glow),0 0 0 10px rgba(255,255,255,.5)}
+.logo-orb img{width:100%;height:100%;object-fit:contain}
+.logo-fallback{font-size:1.5rem;font-weight:800;color:#111827}
+.logo-fallback b{color:var(--g2)}
+.chip{position:absolute;width:0;height:0}
+.chip span{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;background:var(--card);padding:7px 14px;border-radius:99px;font-weight:700;font-size:.85rem;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+
+/* Scrolling strip */
+.marquee{background:var(--navy);color:#e2e8f0;padding:16px 0;overflow:hidden;white-space:nowrap}
+.marquee>div{display:inline-block;animation:slide 30s linear infinite;font-weight:600;font-size:1.1rem}
+.marquee i{color:var(--g1);margin:0 24px;font-style:normal}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+@media(max-width:960px){
+  .hero{padding:92px 0 64px}
+  .hero .wrap{grid-template-columns:1fr;gap:30px}
+  .hero-overlay{background:linear-gradient(180deg,rgba(243,244,246,.94),rgba(243,244,246,.8))}
+  [data-theme=dark] .hero-overlay{background:linear-gradient(180deg,rgba(11,18,32,.94),rgba(11,18,32,.8))}
+  .orbit{max-width:300px}
+}

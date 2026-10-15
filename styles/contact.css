@@ -1,0 +1,17 @@
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:24px}
+.panel{background:var(--card);border-radius:28px;padding:34px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.panel h3{font-size:1.4rem;margin-bottom:22px}
+.info{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+.info .ico{width:48px;height:48px;flex:none}
+.info.wa .ico{background:#25d366;color:#fff}
+.info small{display:block;color:var(--muted)}
+label{display:block;font-size:.85rem;font-weight:600;color:var(--muted);margin:14px 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid transparent;background:var(--field);color:var(--text);font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--g1);background:var(--card)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel .btn{width:100%;margin-top:22px;padding:14px}
+.areas{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.areas span{background:var(--tint);color:var(--g3);padding:6px 14px;border-radius:99px;font-weight:600;font-size:.88rem}
+[data-theme=dark] .areas span{color:var(--g1)}
+@media(max-width:960px){.contact{grid-template-columns:1fr}}
+@media(max-width:560px){.two{grid-template-columns:1fr}}
