@@ -1,20 +1,47 @@
 /* Footer + floating buttons */
-footer{background:var(--navy);color:#cbd5e1;padding:56px 0 26px}
-.fgrid{display:grid;grid-template-columns:1.2fr .9fr 1.2fr 1.2fr;gap:30px}
-footer h4{color:#fff;margin-bottom:14px;font-size:1.05rem}
-footer .logo{color:#fff}
-footer .logo b{color:var(--g1)}
-.fdesc{margin-top:10px;font-size:.92rem;color:#94a3b8}
-footer li{list-style:none;margin-bottom:8px;color:#94a3b8;font-size:.95rem}
-footer li b{color:#fff}
+footer{position:relative;z-index:2;background:var(--navy);color:#cbd5e1;padding:56px 0 26px}
+/* Desktop: 4 columns, all aligned to the top */
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1.3fr 1.5fr;gap:40px;align-items:start}
+footer h4{color:#fff;margin-bottom:16px;font-size:1rem;font-weight:700}
+footer ul{list-style:none}
+footer li{margin-bottom:10px;color:#94a3b8;font-size:.92rem;line-height:1.5}
+footer li a{transition:color .2s}
 footer li a:hover{color:var(--g1)}
-.soc{display:flex;gap:14px;margin-top:16px;color:#fff}
-.copy{border-top:1px solid #1e293b;margin-top:36px;padding-top:22px;text-align:center;font-size:.9rem;color:#94a3b8}
 
+/* Brand column */
+footer .logo{color:#fff;font-size:1.4rem;line-height:1.2}
+footer .logo b{color:var(--g1)}
+.fdesc{margin-top:12px;font-size:.92rem;color:#94a3b8;max-width:320px}
+.soc{display:flex;gap:14px;margin-top:18px;color:#fff}
+.soc a{display:grid;place-items:center;transition:color .2s,transform .2s}
+.soc a:hover{color:var(--g1);transform:translateY(-2px)}
+
+/* Contact column: label on top, value below */
+.fcontact li{display:flex;flex-direction:column;gap:1px}
+.fcontact .lbl{color:#fff;font-weight:600;font-size:.8rem}
+.fcontact a{word-break:break-word}
+
+.copy{border-top:1px solid #34454f;margin-top:40px;padding-top:22px;text-align:center;font-size:.88rem;color:#94a3b8}
+/* Floating buttons */
 .float{position:fixed;right:22px;bottom:22px;z-index:65;display:flex;flex-direction:column;gap:12px;align-items:center}
 .float a,.float button{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:0;cursor:pointer;color:#fff}
 .float .wa{background:#25d366;box-shadow:0 10px 25px rgba(37,211,102,.5)}
 .float .up{background:var(--navy);box-shadow:0 6px 16px rgba(0,0,0,.3);font-size:1.3rem}
 
-@media(max-width:960px){.fgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.fgrid{grid-template-columns:1fr}}
+/* Tablet: brand on top, then 3 columns */
+@media(max-width:960px){
+  .fgrid{grid-template-columns:1fr 1fr;gap:32px 24px}
+  .fbrand{grid-column:1/-1}
+  .fdesc{max-width:420px}
+}
+
+/* Mobile: brand full width, Links + Our Care side by side, Contact full width */
+@media(max-width:560px){
+  footer{padding:44px 0 90px} /* bottom space so floating buttons don't cover the copyright */
+  .fgrid{gap:28px 20px}
+  .fcontact{grid-column:1/-1}
+  .fcontact ul{display:grid;gap:12px}
+  .fcontact li{margin-bottom:0}
+  .float{right:14px;bottom:14px}
+  .float a,.float button{width:46px;height:46px}
+}

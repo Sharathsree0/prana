@@ -1,7 +1,7 @@
 // All text, numbers and contact details live here. Edit content in this file only.
 export const logoSrc = "/logo.png";
 
-export const heroBanners = ["/banners/banner-1.jpg", "/banners/banner-2.jpg"];
+export const heroBanners = ["/banners/banner-1.png", "/banners/banner-2.png","/banners/banner-3.png","/banners/banner-4.png","/banners/banner-5.png"];
 export const site = {
   name: "PranaHomeNursing",
   phone: "9150002675",
@@ -24,7 +24,7 @@ export const heroWords = "Professional nursing care, in the comfort of home.".sp
 
 export const orbitChips = ["Elder Care", "Mother & Baby", "Physiotherapy", "Home Maid"];
 
-export const marquee = ["Elder Care", "Delivery & Maternity Care", "Patient Care", "Physiotherapy", "Home Maid", "Mother & Baby Care", "Kerala", "Tamil Nadu"];
+export const marquee = ["Elder Care", "Delivery & Maternity Care", "Patient Care", "Physiotherapy", "Home Maid", "Mother & Baby Care", "Kerala", "Tamil Nadu","No spam"];
 
 export const stats = [
   { value: 500, decimals: 0, suffix: "+", label: "families cared for" },
@@ -62,3 +62,5 @@ export const footerLinks = [
 ];
 
 export const footerCare = ["Delivery & Maternity Care", "Elder Care", "Patient Care", "Home Maid", "Mother & Baby Care"];
+
+export const frames = { count: 96 , path: "/frames/frame_", digits: 3, ext: "jpg", start: 1 };

@@ -1,12 +1,16 @@
 import { marquee } from "@/data/site";
 
-// Scrolling strip. The list is rendered twice so the loop is seamless.
+// Scrolling chips. The list is rendered twice so the loop never shows a gap.
 export default function Marquee() {
   return (
     <div className="marquee" aria-hidden>
-      <div>
+      <div className="mq-track">
         {[0, 1].map((k) => (
-          <span key={k}>{marquee.map((t) => <span key={t}>{t}<i>✦</i></span>)}</span>
+          <div className="mq-group" key={k}>
+            {marquee.map((t) => (
+              <span className="mq-pill" key={t}>{t}</span>
+            ))}
+          </div>
         ))}
       </div>
     </div>

@@ -48,7 +48,7 @@ export default function Hero() {
           </motion.p>
           <motion.div className="row" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
             <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="btn" href={site.whatsappLink}>Chat on WhatsApp</motion.a>
-            <a className="btn line" href={`tel:${site.phone}`}>Call {site.phone}</a>
+            <a className="btn line" href={`tel:${site.phone}`}>Call</a>
           </motion.div>
           <motion.div className="badges" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.7 }}>
             <span>★ 4.9 care rating</span><span>500+ families</span><span>24/7 support</span>

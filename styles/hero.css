@@ -3,9 +3,9 @@
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center}
 /* Overlay keeps text readable. Lower the numbers to show more of the photo. */
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(243,244,246,.96) 0%,rgba(243,244,246,.86) 45%,rgba(243,244,246,.35) 100%)}
-[data-theme=dark] .hero-overlay{background:linear-gradient(90deg,rgba(11,18,32,.95) 0%,rgba(11,18,32,.82) 45%,rgba(11,18,32,.45) 100%)}
-
+/* Overlay: strongest behind the text on the left, fully clear on the right */
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(243,244,246,.82) 0%,rgba(243,244,246,.5) 38%,rgba(243,244,246,0) 72%)}
+[data-theme=dark] .hero-overlay{background:linear-gradient(90deg,rgba(29,42,49,.78) 0%,rgba(29,42,49,.45) 38%,rgba(29,42,49,0) 72%)}
 .hero .wrap{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(2rem,3.6vw,3.1rem)}
 .hw{display:inline-block;margin-right:.25em}
@@ -21,23 +21,28 @@
 /* Logo orbit */
 .orbit{position:relative;aspect-ratio:1;max-width:420px;margin:auto;width:100%}
 .ring{position:absolute;inset:3%;border-radius:50%;border:2px dashed rgba(5,150,105,.4)}
-.logo-orb{position:absolute;inset:24%;border-radius:50%;background:#fff;display:grid;place-items:center;padding:12%;box-shadow:0 24px 60px var(--glow),0 0 0 10px rgba(255,255,255,.5)}
+.logo-orb{position:absolute;inset:24%;border-radius:50%;background:#fff;display:grid;place-items:center;padding:5%;box-shadow:0 24px 60px var(--glow),0 0 0 10px rgba(255,255,255,.5)}
 .logo-orb img{width:100%;height:100%;object-fit:contain}
 .logo-fallback{font-size:1.5rem;font-weight:800;color:#111827}
 .logo-fallback b{color:var(--g2)}
 .chip{position:absolute;width:0;height:0}
 .chip span{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;background:var(--card);padding:7px 14px;border-radius:99px;font-weight:700;font-size:.85rem;box-shadow:0 8px 24px rgba(0,0,0,.14)}
 
-/* Scrolling strip */
-.marquee{background:var(--navy);color:#e2e8f0;padding:16px 0;overflow:hidden;white-space:nowrap}
-.marquee>div{display:inline-block;animation:slide 30s linear infinite;font-weight:600;font-size:1.1rem}
-.marquee i{color:var(--g1);margin:0 24px;font-style:normal}
-@keyframes slide{to{transform:translateX(-50%)}}
+/* Scrolling chips */
+.marquee{padding:26px 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;width:max-content;animation:mq 40s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-group{display:flex;gap:40px;padding-right:40px}
+.mq-pill{display:inline-flex;align-items:center;gap:10px;padding:9px 20px 9px 10px;border-radius:99px;background:var(--card);color:var(--text);font-weight:600;font-size:.92rem;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.mq-pill:before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--tint);color:var(--g3);display:grid;place-items:center;font-size:.72rem;font-weight:800}
+[data-theme=dark] .mq-pill:before{color:var(--g1)}
+@keyframes mq{to{transform:translateX(-50%)}}
 
 @media(max-width:960px){
   .hero{padding:92px 0 64px}
   .hero .wrap{grid-template-columns:1fr;gap:30px}
-  .hero-overlay{background:linear-gradient(180deg,rgba(243,244,246,.94),rgba(243,244,246,.8))}
-  [data-theme=dark] .hero-overlay{background:linear-gradient(180deg,rgba(11,18,32,.94),rgba(11,18,32,.8))}
-  .orbit{max-width:300px}
+    .hero-overlay{background:linear-gradient(180deg,rgba(243,244,246,.8),rgba(243,244,246,.45))}
+  [data-theme=dark] .hero-overlay{background:linear-gradient(180deg,rgba(29,42,49,.78),rgba(29,42,49,.45))}  .orbit{max-width:300px}
 }

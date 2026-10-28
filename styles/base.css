@@ -1,6 +1,6 @@
 /* Colors, reset, typography, buttons: shared by every section */
 :root{--g1:#10b981;--g2:#059669;--g3:#047857;--tint:#dcfce7;--navy:#0f172a;--bg:#f3f4f6;--card:#fff;--text:#111827;--muted:#4b5563;--field:#f3f4f6;--glow:rgba(16,185,129,.35)}
-[data-theme=dark]{--bg:#0b1220;--card:#162033;--text:#f1f5f9;--muted:#9fb0c5;--field:#0f172a;--tint:#134e3a}
+[data-theme=dark]{--bg:#1d2a31;--card:#293941;--text:#f1f5f9;--muted:#b9c7d1;--field:#223039;--tint:#1f4a40;--navy:#1a262d}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body),system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden;transition:background .3s}

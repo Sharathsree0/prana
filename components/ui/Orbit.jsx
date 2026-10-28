@@ -1,20 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { orbitChips, logoSrc } from "@/data/site";
 
 // Hero artwork: company logo in the centre with service chips orbiting it.
 export default function Orbit() {
   const [logoOk, setLogoOk] = useState(true); // false if /public/logo.png is missing
-
+  const imgRef = useRef(null);
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth === 0) setLogoOk(false);
+  }, []);
   return (
     <div className="orbit">
       <div className="ring" />
 
       <motion.div className="logo-orb" animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}>
         {logoOk ? (
-          <img src={logoSrc} alt="PranaHomeNursing logo" onError={() => setLogoOk(false)} />
-        ) : (
+          <img ref={imgRef} src={logoSrc} alt="PranaHomeNursing logo" onError={() => setLogoOk(false)} />) : (
           <span className="logo-fallback"><b>Prana</b>Home</span>
         )}
       </motion.div>
